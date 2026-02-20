@@ -1,0 +1,49 @@
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# --- VS Code / IDE ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyd
+.python-version
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# --- GDB / Pwntools / Runtime dumps ---
+.gdb_history
+.gdbinit.local
+gdb.txt
+core
+core.*
+*.core
+*.log
+
+# --- Native build artifacts ---
+*.o
+*.obj
+*.a
+*.so
+*.out
+*.elf
+
+# --- Local challenge outputs (generated binaries) ---
+**/src/chal.debug
+**/src/chal_patched
+
+# --- Local-only secrets / env ---
+.env
+.env.*
+*.local
+**/flag_local.txt

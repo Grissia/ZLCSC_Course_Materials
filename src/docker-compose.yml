@@ -1,0 +1,18 @@
+services:
+  pwn-nc:
+    build: ./pwn/nc
+    container_name: pwn-nc
+    volumes:
+      - ./pwn/nc/src:/home/chal:ro
+      - ./pwn/nc/xinetd:/etc/xinetd.d/chal:ro
+    ports:
+      - "5000:5000"
+
+  pwn-ret2win-0:
+    build: ./pwn/ret2win-0
+    container_name: pwn-ret2win-0
+    volumes:
+      - ./pwn/ret2win-0/src:/home/chal:ro
+      - ./pwn/ret2win-0/xinetd:/etc/xinetd.d/chal:ro
+    ports:
+      - "5001:5000"
