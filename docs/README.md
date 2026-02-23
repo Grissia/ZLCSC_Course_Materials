@@ -23,4 +23,4 @@
 ## 參考連結
 
 - [pwndbg docs](https://pwndbg.re/stable/setup/#system-gdb-but-not-like-that)
-- [Linux syscall table](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md)
+- [Linux syscall table](https://www.chromium.org/chromium-os/developer-library/reference/linux-constants/syscalls/)
