@@ -7,6 +7,18 @@ services:
       - ./pwn/nc/xinetd:/etc/xinetd.d/chal:ro
     ports:
       - "5000:5000"
+    tmpfs:
+      - /tmp:noexec
+      - /run
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    pids_limit: 64
 
   pwn-ret2win-0:
     build: ./pwn/ret2win-0
@@ -16,3 +28,37 @@ services:
       - ./pwn/ret2win-0/xinetd:/etc/xinetd.d/chal:ro
     ports:
       - "5001:5000"
+    tmpfs:
+      - /tmp:noexec
+      - /run
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    pids_limit: 64
+
+  rev-asm-0:
+    build: ./rev/asm-0
+    container_name: rev-asm-0
+    volumes:
+      - ./rev/asm-0/src:/home/chal:ro
+      - ./rev/asm-0/xinetd:/etc/xinetd.d/chal:ro
+      - ./rev/asm-0/src/flag.txt:/flag.txt:ro
+    ports:
+      - "5002:5000"
+    tmpfs:
+      - /tmp:exec
+      - /run
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    pids_limit: 64
