@@ -41,6 +41,8 @@ ZLCSC_Course_Materials/
     - Compiler & Assembler
     - Opcode & Assembly
     - Assembly basics
+    - *hw: helloworld.asm*
+    - *asm-0*
     - Tools installation -> gdb, ida, pwntools, etc 
 - Reverse 2
     - ELF structure
