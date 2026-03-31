@@ -16,5 +16,5 @@ int main(){
 			printf("It's 1000\n");
 			break;
 	}
-        return 0;
+    return 0;
 }
