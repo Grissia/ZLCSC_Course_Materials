@@ -30,7 +30,8 @@ ZLCSC_Course_Materials/
     └── rev/                    # Reverse 題目目錄
         ├── asm-0/
         ├── crackme-0/
-        └── crackme-1/
+        ├── crackme-1/
+        └── crackme-2/
 ```
 
 
