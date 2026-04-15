@@ -5,7 +5,7 @@
 // gcc chal.c -o chal -std=c17
 
 static void print_flag(void) {
-	FILE *fp = fopen("/flag.txt", "r");
+	FILE *fp = fopen("/home/chal/flag.txt", "r");
 	char buf[128];
 
 	if (fp == NULL) {
