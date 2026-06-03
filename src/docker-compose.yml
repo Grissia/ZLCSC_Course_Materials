@@ -27,7 +27,7 @@ services:
       - ./pwn/int0verflow/src:/home/chal:ro
       - ./pwn/int0verflow/xinetd:/etc/xinetd.d/chal:ro
     ports:
-      - "5003:5000"
+      - "5001:5000"
     tmpfs:
       - /tmp:noexec
       - /run
@@ -48,7 +48,28 @@ services:
       - ./pwn/ret2win-0/src:/home/chal:ro
       - ./pwn/ret2win-0/xinetd:/etc/xinetd.d/chal:ro
     ports:
-      - "5001:5000"
+      - "5010:5000"
+    tmpfs:
+      - /tmp:noexec
+      - /run
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    pids_limit: 64
+
+  pwn-ret2win-1:
+    build: ./pwn/ret2win-1
+    container_name: pwn-ret2win-1
+    volumes:
+      - ./pwn/ret2win-1/src:/home/chal:ro
+      - ./pwn/ret2win-1/xinetd:/etc/xinetd.d/chal:ro
+    ports:
+      - "5011:5000"
     tmpfs:
       - /tmp:noexec
       - /run
@@ -70,7 +91,7 @@ services:
       - ./rev/asm-0/xinetd:/etc/xinetd.d/chal:ro
       - ./rev/asm-0/src/flag.txt:/flag.txt:ro
     ports:
-      - "5002:5000"
+      - "5020:5000"
     tmpfs:
       - /tmp:exec
       - /run
