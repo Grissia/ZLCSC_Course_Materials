@@ -83,6 +83,48 @@ services:
     mem_limit: 64m
     pids_limit: 64
 
+  pwn-got-hijacking-0:
+    build: ./pwn/got-hijacking-0
+    container_name: pwn-got-hijacking-0
+    volumes:
+      - ./pwn/got-hijacking-0/src:/home/chal:ro
+      - ./pwn/got-hijacking-0/xinetd:/etc/xinetd.d/chal:ro
+    ports:
+      - "5012:5000"
+    tmpfs:
+      - /tmp:noexec
+      - /run
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    pids_limit: 64
+
+  pwn-ret2libc-0:
+    build: ./pwn/ret2libc-0
+    container_name: pwn-ret2libc-0
+    volumes:
+      - ./pwn/ret2libc-0/src:/home/chal:ro
+      - ./pwn/ret2libc-0/xinetd:/etc/xinetd.d/chal:ro
+    ports:
+      - "5013:5000"
+    tmpfs:
+      - /tmp:noexec
+      - /run
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    pids_limit: 64
+
   rev-asm-0:
     build: ./rev/asm-0
     container_name: rev-asm-0
